@@ -2,10 +2,29 @@
 layout: base.html
 title: Peter Wolff
 ---
-
-{% for post in collections.post %}
-<article>
-    <h2><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
-    <p>{{ post.content }}</p>
-</article>
-{% endfor %}
+<div class="intro">
+    <p>Hello! I'm a front-end web developer working remotely from the Pacific Northwest of the United States. Currently employed with LeadVenture and working on website projects for their OEM partners in the powersports industry.</p>
+    <p>Outside of work my hobbies include video games, reading, and hiking. Currently on a mission to clear out the ever increasing backlog of games that I can't possibly keep up with, and at the same time continue exploring the beautiful PNW.</p>
+</div>
+<div class="blog-preview">
+    <h2>Blog</h2>
+    <p>Thoughts about my personal interests and occassional web development related posts.</p>
+    <div class="grid">
+        {% assign latest_posts = collections.post | reverse | slice:0,3 %}
+        {% for post in latest_posts %}
+        <article>
+            <h3><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
+            <span>{{ post.data.description }}</span>
+        </article>
+        {% endfor %}
+    </div>
+</div>
+<div class="contact">
+    <h2>Contact</h2>
+    <p>If you'd like to get in touch please shoot me an email. My Github is also available and is a constant work in progress. I'm also on LinkedIn where you can find additional details about my employment history and skills.</p>
+    <div class="socials">
+        <a href="mailto:triwhiskey@pm.me"><i class="ph ph-envelope-simple"></i> Email</a>
+        <a href="https://github.com/triwhiskey" target="_blank"><i class="ph ph-github-logo"></i> Github</a>
+        <a href="https://www.linkedin.com/in/wolffpc/" target="_blank"><i class="ph ph-linkedin-logo"></i> LinkedIn</a>
+    </div>
+</div>

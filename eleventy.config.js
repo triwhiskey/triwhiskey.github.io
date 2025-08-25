@@ -1,5 +1,6 @@
 import path from "node:path";
 import * as sass from "sass";
+import { DateTime } from "luxon";
 
 export default function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy("site/favicon.ico");
@@ -34,7 +35,15 @@ export default function(eleventyConfig) {
     });
 
     eleventyConfig.addTemplateFormats("scss");
-    
+
+		eleventyConfig.addFilter("postDate", (dateObj) => {
+			return DateTime.fromJSDate(dateObj).toLocaleString(DateTime.DATE_MED);
+		});
+		
+		eleventyConfig.addFilter("dateTime", (dateObj) => {
+			return DateTime.fromJSDate(dateObj).toISODate();
+		});
+		    
     return {
         dir: {
             input: "site",

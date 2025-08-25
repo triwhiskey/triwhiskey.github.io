@@ -1,6 +1,30 @@
 ---
 layout: base.html
-title: Personal Blog
+title: Blog
+pagination:
+  data: collections.post
+  size: 2
+  alias: posts
+  reverse: true
 ---
 
-<p>Some blog stuff.</p>
+{% for post in posts %}
+<article>
+    <h3><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
+    <span>{{ post.data.description }}</span>
+</article>
+{% endfor %}
+
+<p>
+  {% if pagination.href.previous %}
+  <a href=" {{ pagination.href.previous }}">Previous</a>
+  {% else %}
+  Previous
+  {% endif %} 
+  / 
+  {% if pagination.href.next %}
+  <a href=" {{ pagination.href.next }}">Next</a>
+  {% else %}
+  Next
+  {% endif %}
+</p>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include "partials/head.html" %}
+</head>
+<body>
+    {% include "components/header.html" %}
+
+    <main class="container">
+      <hgroup>
+        <h1>{{ title }}</h1>
+        <time datetime="{{ date | dateTime }}">{{ date | postDate }}</time>
+      </hgroup>
+      <p>{{ description }}</p>
+      <hr>
+      {{ content }}
+    </main>
+
+    {% include "components/footer.html" %}
+</body>
+</html>

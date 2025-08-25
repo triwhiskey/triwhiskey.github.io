@@ -1,5 +1,15 @@
-@use "../../node_modules/@picocss/pico/scss";
+@use "../../node_modules/@picocss/pico/scss" with (
+  $theme-color: "cyan"
+);
+@use "../../node_modules/@picocss/pico/scss/colors" as *;
 
 header {
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid $grey-650;
+}
+
+.socials {
+  a {
+    display: block;
+    width: fit-content;
+  }
 }
